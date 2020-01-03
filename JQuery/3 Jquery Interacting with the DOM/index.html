@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Index</title>
+
+   <!-- SCRIPTS  -->
+    <style type="text/css">
+        .BlueDiv { background-color: Navy; color:White;width:200px;}
+        .RedDiv { background-color: Red; color:White; width:200px;}
+        .style1
+        {
+            width: 100%;
+        }
+        .Highlight{background-color: yellow;}
+    </style>
+    
+    <!-- SCRIPTS  -->
+    <script src="Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+    
+    <!-- SCRIPTS  -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            // var html = " ";
+            // $('div.BlueDiv, div.RedDiv').each(function (index) {
+            //     html += "<br />" + index + " " + $(this).text()
+            // });
+            // var output = $('#OutputDiv');
+            // output.html(html);
+
+            // $('div.BlueDiv, div.RedDiv').each(function (index) {
+            //     this.title= "Some title";
+            //     $(this).attr('title','Some title 2');
+            //     alert(this.title)
+            // });
+
+             $('div.BlueDiv, div.RedDiv')
+                 .attr(
+                 {
+                 style:'font-size:30pt;background-color:pink;',
+                 title:"some title 3"
+                 }).css({"border":"10px solid green",
+                            "color":"black"});
+
+        var tcd = $(".TableConteinerDiv");
+        tcd.append('</br><span style="background-color:pink"> Append Child Added #1 End</span>');
+        tcd.prepend('</br><span style="background-color:grey"> Prepend Child Added #1 Start </span>');
+        
+        $('</br><span style="background-color:purple"> Append Child Added #2</span> ').appendTo(tcd);
+        $('</br><span style="background-color:orange"> Prepend Child Added #2</span>').prependTo(tcd);
+
+        //Remove
+        // $('div.ParentWrapper').remove();
+        
+
+        //WRAP
+        $('span.Foo').wrap('<div class="RedDiv ParentWrapper" />');
+        $('div.ParentWrapper').each(function () {
+            alert($(this).html())
+        });
+
+        $('div.ParentWrapper').remove();
+        
+        //ADDING CLASS ATTRIBUTE
+        // $(document).ready(function(){
+        //     var output = $('#OutputDiv');
+        //     $('#TestDiv').attr('class','Myclassedited');
+        // });
+
+
+        //CLASS FUNCTION
+        // $('input[type="text"]').addClass("Highlight");
+        // $("#LastNameTextBox").removeClass("Highlight");
+    });
+
+        function Focus(tb) {
+            $(tb).toggleClass("Highlight");
+        }
+
+        function Blur(tb) {
+            $(tb).toggleClass("Highlight");
+        }
+
+    </script>
+
+</head>
+
+
+
+
+<body>
+    <div id="OutputDiv">
+
+    </div>
+    <div id="TestDiv" title="Div Title asdf asdfsdf asdf">
+        Texto div
+    </div>
+    <div class="TableConteinerDiv" title="Contains Table">
+        <table id="DataTable">
+          <tr>
+             <td>Cell 1 Row 1</td>
+          </tr>
+          <tr>
+             <td>Cell 1 Row 2</td>
+          </tr>
+          <tr>
+             <td>Cell 1 Row 3</td>
+          </tr>
+          <tr>
+             <td>
+                <table style="width:100%">
+                    <tr>
+                        <td>Nested Table Cell and Row</td>
+                    </tr>
+                </table>
+             </td>
+          </tr>
+        </table>
+        <br />
+    </div>
+    <br />
+    <div class="BlueDiv">
+        <span>Blue div</span>
+    </div>
+
+    <span class="Foo">Span 1</span>
+    <span class="Foo">Span 2</span>
+    <span id="Span3" class="Foo">Span 3</span>
+    <br />
+    <div class="RedDiv">
+        <span>Red div</span>
+    </div>
+    <p>
+        <img src="Images/pluralsight.png" />
+    </p>
+
+    <form id="form1" runat="server">
+        <table style="width:300px;">
+            <tr>
+                <td style="width:30%;">First Name</td>
+                <td style="width:70%;"><input id="FirstNameTextBox" onfocus="Focus(this)" onblur="Blur(this)" value="Cesar Hernandez" type="text" /></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input id="LastNameTextBox" onfocus="Focus(this)" onblur="Blur(this)" type="text" /></td>
+            </tr>
+            <tr>
+                <td>Comments</td>
+                <td><textarea rows="5" cols="60" id="CommentsTextBox">Área Texto</textarea></td>
+            </tr>           
+            <tr>
+                <td>
+                <select id="sel">
+                    <option value="AZ">TAV</option>
+                    <option value="CA" selected="true">CES</option>
+                </select></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td><input id="SubmitButton" type="button" value="Enviar" /></td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>  
+
+    </form>
+</body>
+</html>
+
