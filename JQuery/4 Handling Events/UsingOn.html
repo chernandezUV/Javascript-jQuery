@@ -10,14 +10,17 @@
     <script src="Scripts/jquery-1.9.1.js"></script>
     <script>
         $(document).ready(function () {
-            var tbody = $('#customers tbody');
-            $('#addRow').on('click', function () {
-                tbody.append('<tr><td>Jane</td><td>Doe</td></tr>');
-            });
-
-            tbody.on('click', 'td', function () {
-                alert($(this).text());
-            });
+        //    $('#customers tbody').on('click','td',function () {
+        //        alert($(this).text());
+        //    })
+        var tbody = $('#customers tbody');
+        $('#addRow').on('click',function () {
+            tbody.append('<tr><td> Cesar </td><td>Hernandez</td></tr>')
+           })
+        
+        tbody.on('click','td', function () {
+            alert($(this).text());
+        })
         });
     </script>
 </head>
